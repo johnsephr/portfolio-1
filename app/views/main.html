@@ -1,0 +1,137 @@
+<nav>
+    <h1>David Ramsey</h1>
+    <h2>Contact</h2>
+    <h2>Projects</h2>
+</nav>
+<!--
+
+<h1 class="disclaimer">Under Construction.. Please email me at ramseycdavid@gmail.com</h1>
+-->
+
+
+
+<div class="divider first">
+    <div class="line"></div>
+    <h1>Work</h1>
+    <div class="line"></div>
+</div>
+<div class="work-container" ng-class="{'work-first':$first,'ready':ready}" ng-repeat="work in works">
+    <div class="images" ng-if="work.title !== 'atlas app'">
+
+        <img class="web-image" ng-src="{{work.web_path}}" alt="" />
+        <img class="mobile-image " ng-if="work.mobile_path.length" ng-src="{{work.mobile_path}}" alt="" />
+    </div>
+
+    <div class="images" ng-if="work.title === 'atlas app'">
+
+        <img class="app-image left " ng-src="{{work.app_left}}" alt="" />
+        <img class="app-image center " ng-src="{{work.app_center}}" alt="" />
+        <img class="app-image right " ng-src="{{work.app_right}}" alt="" />
+    </div>
+
+
+
+    <div class="card">
+        <div class="content">
+            <h1>{{work.title}}</h1>
+            <div class="roles">
+                <div class="h-center">
+                    <div class="role" ng-repeat="role in work.roles">
+                        <span>{{role}}</span>
+                        <span ng-if="!$last">|</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="desc">
+                <p>{{work.description}}</p>
+            </div>
+            <h3>tech used</h3>
+            <div class="icons">
+                <i ng-repeat="tech in work.techs" class="{{tech.icon}}"></i>
+            </div>
+
+            <button ng-repeat="button in work.buttons">{{button.name}}</button>
+        </div>
+
+    </div>
+    <div class="back-shadow"></div>
+    <div class="front-shadow"></div>
+</div>
+
+
+<div class="divider">
+    <div class="line"></div>
+    <h1>Projects</h1>
+    <div class="line"></div>
+</div>
+
+<div class="work-container" ng-class="{'work-first':$first,'ready':ready}" ng-repeat="project in projects">
+    <div class="images active" ng-if="project.title !== 'atlas app'">
+
+        <img class="web-image " ng-src="{{project.web_path}}" alt="" />
+        <img class="mobile-image " ng-if="project.mobile_path.length" ng-src="{{project.mobile_path}}" alt="" />
+    </div>
+
+    <div class="images" ng-if="project.title === 'atlas app'">
+
+        <img class="app-image left " ng-src="{{project.app_left}}" alt="" />
+        <img class="app-image center " ng-src="{{project.app_center}}" alt="" />
+        <img class="app-image right " ng-src="{{project.app_right}}" alt="" />
+    </div>
+
+
+
+    <div class="card">
+        <div class="content">
+            <h1>{{project.title}}</h1>
+            <div class="roles">
+                <div class="h-center">
+                    <div class="role" ng-repeat="role in project.roles">
+                        <span>{{role}}</span>
+                        <span ng-if="!$last">|</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="desc">
+                <p>{{project.description}}</p>
+            </div>
+            <h3>tech used</h3>
+            <div class="icons">
+                <i ng-repeat="tech in project.techs" class="{{tech.icon}}"></i>
+            </div>
+
+            <button ng-repeat="button in project.buttons">{{button.name}}</button>
+        </div>
+
+    </div>
+    <div class="back-shadow"></div>
+    <div class="front-shadow"></div>
+</div>
+
+
+
+
+<div class="divider last">
+    <div class="line"></div>
+    <h1>Contact</h1>
+    <div class="line"></div>
+</div>
+
+
+<div class="contact">
+    <form action="">
+        <span>Hi, I'm</span>
+        <input type="text">
+        <span>I work at</span>
+        <input type="text">
+        <span>You can email me at</span>
+        <input type="email">
+        <span>To discuss</span>
+        <textarea></textarea>
+        <button>Send</button>
+    </form>
+</div>

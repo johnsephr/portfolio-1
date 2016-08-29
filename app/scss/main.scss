@@ -1,0 +1,342 @@
+@import 'fonts';
+@import 'mixins';
+$ltgrey: #8c8e8f;
+$mdgrey: #494949;
+$dkgrey: #101010;
+$card-height: 21em;
+body {
+    font-family: 'raleway';
+}
+
+#vidmodal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.25);
+    z-index: 999;
+    video {
+        width: 90%;
+        height: auto;
+        max-width: 1000px;
+        @include centerer;
+    }
+}
+
+nav {
+    float: left;
+    margin-bottom: 0em;
+    width: 100%;
+    height: 5em;
+    h1 {
+        @include inline;
+        @include v-center;
+        margin: 0;
+    }
+    h2 {
+        font-size: 1em;
+        @include inline(right);
+        @include v-center;
+        margin: 0 1em;
+    }
+}
+
+.disclaimer {
+    @include h-center(absolute);
+    font-size: .9em;
+    color: red;
+    top: 5em;
+    text-align: center;
+}
+
+.divider {
+    margin: 10em 0;
+    height: 2em;
+    width: auto;
+    @include h-center;
+    float: left;
+    text-align: center;
+    .line {
+        width: 3em;
+        @include inline;
+        whitespace: nowrap;
+        @include v-center;
+        height: 1px;
+        border-bottom: 1px solid $ltgrey;
+    }
+    h1 {
+        //        text-transform: uppercase;
+        @include inline;
+        whitespace: nowrap;
+        color: $ltgrey;
+        font-size: 1.25em;
+        @include v-center;
+        margin: 0 1em;
+    }
+}
+
+.first {
+    margin: 6em 0;
+}
+
+.last {
+    margin-bottom: 6em;
+}
+
+.container {
+    @include h-center;
+    width: 95%;
+    max-width: 1000px;
+}
+
+.work-container {
+    height: auto;
+    margin: 6em 0;
+    float: left;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 700ms ease-in-out;
+}
+
+.work-first {
+    margin-top: 0;
+}
+
+.h-center {
+    @include h-center;
+    width: auto;
+    float: left;
+}
+
+.ready {
+    opacity: 1;
+}
+
+.images {
+    position: relative;
+    height: auto;
+    width: 100%;
+    .web-image {
+        width: 75%;
+        height: auto;
+        z-index: 4;
+        position: relative;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 6px);
+        border-radius: 3px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, .25);
+
+    }
+    .mobile-image {
+        width: 15%;
+        height: auto;
+        z-index: 5;
+        position: absolute;
+        left: 15%;
+        bottom: 0;
+        transform: translate(-50%, 3px);
+        border-radius: 3px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, .25);
+    }
+    .app-image {
+        width: 20%;
+        height: auto;
+        bottom: 0;
+        border-radius: 3px;
+        //        border: 3px solid $ltgrey;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    }
+    .left {
+        position: absolute;
+        transform: translate(-50%, 3em);
+        left: 32%;
+        z-index: 4;
+    }
+    .center {
+        position: relative;
+        transform: translate(-50%, 1em);
+        left: 50%;
+        z-index: 5;
+    }
+    .right {
+        position: absolute;
+        transform: translate(-50%, 3em);
+        right: 12%;
+        z-index: 4;
+    }
+    .phones {
+        box-shadow: none;
+        width: 50%;
+    }
+}
+
+.card {
+    background: white;
+    border-top: 1px solid rgba(0, 0, 0, .02);
+    height: $card-height;
+    width: 100%;
+    position: relative;
+    z-index: 7;
+    text-align: center;
+    h1 {
+        //        font-weight: normal;
+        font-weight: bolder;
+        text-transform: uppercase;
+        font-size: 1.75em;
+        color: $mdgrey;
+        margin-top: 1.5em;
+        margin-bottom: .5em;
+    }
+    .roles {
+        position: relative;
+        width: 100%;
+        height: 2em;
+        .role {
+            @include inline;
+            span {
+                text-transform: lowercase;
+                font-size: 1em;
+                color: $mdgrey;
+                margin: 0 .5em;
+            }
+        }
+    }
+    .desc {
+        width: 90%;
+        max-width: 500px;
+        @include h-center;
+        p {
+            text-align: left;
+            margin: 1em 0;
+            font-size: 1em;
+            color: $mdgrey;
+        }
+    }
+    h3 {
+        margin: 0;
+        margin-top: 2.5em;
+        text-transform: uppercase;
+        font-size: .9em;
+    }
+    .icons {
+        padding: 1em 0;
+        padding-bottom: 2em;
+        i {
+            font-size: 1.5em;
+            color: $mdgrey;
+            margin: 0 .5em;
+        }
+    }
+    button {
+        border-radius: 0;
+        border: 1px solid $mdgrey;
+        width: 10em;
+        height: 3em;
+        margin: 0 .5em;
+        color: $mdgrey;
+        background-color: white;
+        cursor: pointer;
+        outline: none;
+    }
+    button:hover {
+        background-color: $mdgrey;
+        color: white;
+    }
+}
+
+.hide {
+    transform: translate(-50%, $card-height /2);
+}
+
+.back-shadow {
+    width: 95%;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 5px 30px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 5px 30px rgba(0, 0, 0, 1);
+    box-shadow: 0px 5px 30px rgba(0, 0, 0, 1);
+    position: relative;
+    z-index: 1;
+    height: 1px;
+    top: -$card-height;
+}
+
+.front-shadow {
+    width: 95%;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 5px 12px 1px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 5px 12px 1px rgba(0, 0, 0, 1);
+    box-shadow: 0px 5px 12px 1px rgba(0, 0, 0, 1);
+    position: relative;
+    z-index: 6;
+    height: 1px;
+    top: -$card-height;
+}
+
+.contact {
+    position: relative;
+    width: 100%;
+    height: auto;
+    float: left;
+    form {
+        width: 90%;
+        max-width: 450px;
+        @include h-center;
+    }
+    input {
+        border: unset;
+        border-bottom: 1px solid $ltgrey;
+        color: $mdgrey;
+        border-radius: 0;
+        background-color: white;
+        display: block;
+        margin: 1em 0;
+        margin-bottom: 3em;
+        width: 100%;
+        font-size: 1em;
+        outline: none;
+        font-weight: normal;
+    }
+    input:focus {
+        border-color: $mdgrey;
+    }
+    textarea {
+        @extend input;
+        height: 5em;
+        resize: none;
+    }
+    button {
+        border-radius: 0;
+        border: 1px solid $mdgrey;
+        width: 100%;
+        height: 3em;
+        margin: 0 .5em;
+        color: $mdgrey;
+        background-color: white;
+        cursor: pointer;
+        outline: none;
+    }
+    button:hover {
+        background-color: $mdgrey;
+        color: white;
+    }
+}
+
+.footer {
+    height: auto;
+    padding: 15em 0 1em 0;
+    width: 100%;
+    position: relative;
+    float: left;
+    text-align: center;
+    h1 {
+        font-size: 1em;
+        color: $ltgrey;
+    }
+    h2 {
+        font-size: .8em;
+        color: $ltgrey;
+    }
+}
