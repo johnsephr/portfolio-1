@@ -1,7 +1,8 @@
+
 <nav>
     <h1>David Ramsey</h1>
-    <h2>Contact</h2>
-    <h2>Projects</h2>
+    <h2 ng-click="gotoAnchor('contact')">Contact</h2>
+    <h2 ng-click="gotoAnchor('projects')">Projects</h2>
 </nav>
 <!--
 
@@ -15,101 +16,114 @@
     <h1>Work</h1>
     <div class="line"></div>
 </div>
-<div class="work-container" ng-class="{'work-first':$first,'ready':ready}" ng-repeat="work in works">
-    <div class="images" ng-if="work.title !== 'atlas app'">
+<div class="wrap" ng-class="{'wrap-first':$first}" ng-repeat="work in works">
+    <div class="work-container">
+        <div class="images" ng-if="work.title !== 'atlas app'">
 
-        <img class="web-image" ng-src="{{work.web_path}}" alt="" />
-        <img class="mobile-image " ng-if="work.mobile_path.length" ng-src="{{work.mobile_path}}" alt="" />
-    </div>
-
-    <div class="images" ng-if="work.title === 'atlas app'">
-
-        <img class="app-image left " ng-src="{{work.app_left}}" alt="" />
-        <img class="app-image center " ng-src="{{work.app_center}}" alt="" />
-        <img class="app-image right " ng-src="{{work.app_right}}" alt="" />
-    </div>
-
-
-
-    <div class="card">
-        <div class="content">
-            <h1>{{work.title}}</h1>
-            <div class="roles">
-                <div class="h-center">
-                    <div class="role" ng-repeat="role in work.roles">
-                        <span>{{role}}</span>
-                        <span ng-if="!$last">|</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="desc">
-                <p>{{work.description}}</p>
-            </div>
-            <h3>tech used</h3>
-            <div class="icons">
-                <i ng-repeat="tech in work.techs" class="{{tech.icon}}"></i>
-            </div>
-
-            <button ng-repeat="button in work.buttons">{{button.name}}</button>
+            <img class="web-image" ng-src="{{work.web_path}}" alt="" />
+            <img class="mobile-image " ng-if="work.mobile_path.length" ng-src="{{work.mobile_path}}" alt="" />
         </div>
 
+        <div class="images" ng-if="work.title === 'atlas app'">
+
+            <img class="app-image left " ng-src="{{work.app_left}}" alt="" />
+            <img class="app-image center " ng-src="{{work.app_center}}" alt="" />
+            <img class="app-image right " ng-src="{{work.app_right}}" alt="" />
+        </div>
+
+
+
+        <div class="card">
+            <div class="content">
+                <h1>{{work.title}}</h1>
+                <div class="roles">
+                    <div class="h-center">
+                        <div class="role" ng-repeat="role in work.roles">
+                            <span>{{role}}</span>
+                            <span ng-if="!$last">|</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="desc">
+                    <p>{{work.description}}</p>
+                </div>
+                <h3>tech used</h3>
+                <div class="icons">
+                    <a ng-href="{{tech.link}}" ng-repeat="tech in work.techs" target="_blank">
+                        <i class="{{tech.icon}}"></i>
+                    </a>
+                </div>
+                <button ng-if="work.video_path.length" ng-click="playVid(work.video_path,work.poster)">Watch Demo</button>
+                <a ng-repeat="button in work.buttons" ng-href="{{button.link}}" target="_blank">
+                    <button>{{button.name}}</button>
+                </a>
+            </div>
+
+        </div>
+        <div class="back-shadow"></div>
+        <div class="front-shadow"></div>
     </div>
-    <div class="back-shadow"></div>
-    <div class="front-shadow"></div>
+
 </div>
 
 
-<div class="divider">
+<div class="divider" id="projects">
     <div class="line"></div>
     <h1>Projects</h1>
     <div class="line"></div>
 </div>
 
-<div class="work-container" ng-class="{'work-first':$first,'ready':ready}" ng-repeat="project in projects">
-    <div class="images active" ng-if="project.title !== 'atlas app'">
+<div class="wrap" ng-class="{'wrap-first':$first}" ng-repeat="project in projects">
+    <div class="work-container">
+        <div class="images active" ng-if="project.title !== 'atlas app'">
 
-        <img class="web-image " ng-src="{{project.web_path}}" alt="" />
-        <img class="mobile-image " ng-if="project.mobile_path.length" ng-src="{{project.mobile_path}}" alt="" />
-    </div>
-
-    <div class="images" ng-if="project.title === 'atlas app'">
-
-        <img class="app-image left " ng-src="{{project.app_left}}" alt="" />
-        <img class="app-image center " ng-src="{{project.app_center}}" alt="" />
-        <img class="app-image right " ng-src="{{project.app_right}}" alt="" />
-    </div>
-
-
-
-    <div class="card">
-        <div class="content">
-            <h1>{{project.title}}</h1>
-            <div class="roles">
-                <div class="h-center">
-                    <div class="role" ng-repeat="role in project.roles">
-                        <span>{{role}}</span>
-                        <span ng-if="!$last">|</span>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="desc">
-                <p>{{project.description}}</p>
-            </div>
-            <h3>tech used</h3>
-            <div class="icons">
-                <i ng-repeat="tech in project.techs" class="{{tech.icon}}"></i>
-            </div>
-
-            <button ng-repeat="button in project.buttons">{{button.name}}</button>
+            <img class="web-image " ng-src="{{project.web_path}}" alt="" />
+            <img class="mobile-image " ng-if="project.mobile_path.length" ng-src="{{project.mobile_path}}" alt="" />
         </div>
 
+        <div class="images" ng-if="project.title === 'atlas app'">
+
+            <img class="app-image left " ng-src="{{project.app_left}}" alt="" />
+            <img class="app-image center " ng-src="{{project.app_center}}" alt="" />
+            <img class="app-image right " ng-src="{{project.app_right}}" alt="" />
+        </div>
+
+
+
+        <div class="card">
+            <div class="content">
+                <h1>{{project.title}}</h1>
+                <div class="roles">
+                    <div class="h-center">
+                        <div class="role" ng-repeat="role in project.roles">
+                            <span>{{role}}</span>
+                            <span ng-if="!$last">|</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="desc">
+                    <p>{{project.description}}</p>
+                </div>
+                <h3>tech used</h3>
+                <div class="icons">
+                    <a ng-href="{{tech.link}}" ng-repeat="tech in project.techs" target="_blank">
+                        <i class="{{tech.icon}}"></i>
+                    </a>
+                </div>
+
+                <a ng-repeat="button in project.buttons" ng-href="{{button.link}}" target="_blank">
+                    <button>{{button.name}}</button>
+                </a>
+            </div>
+
+        </div>
+        <div class="back-shadow"></div>
+        <div class="front-shadow"></div>
     </div>
-    <div class="back-shadow"></div>
-    <div class="front-shadow"></div>
 </div>
 
 
@@ -122,16 +136,30 @@
 </div>
 
 
-<div class="contact">
-    <form action="">
+<div id="contact">
+    <form action="https://formspree.io/ramseycdavid@gmail.com" method="POST">
         <span>Hi, I'm</span>
-        <input type="text">
+        <input type="text" name="name">
         <span>I work at</span>
-        <input type="text">
+        <input type="text" name="company">
         <span>You can email me at</span>
-        <input type="email">
+        <input type="email" name="_replyto">
         <span>To discuss</span>
-        <textarea></textarea>
-        <button>Send</button>
+        <textarea name="_message"></textarea>
+
+        <!-- Formspree config -->
+        <input type="text" name="_gotcha" style="display:none" />
+        <input type="hidden" name="_subject" value="Job Inquiry" />
+        <input type="hidden" name="_next" value="" />
+
+
+        <button type="submit" value="Send" name="action">Send</button>
     </form>
+
+
+
+
+
+
+
 </div>
