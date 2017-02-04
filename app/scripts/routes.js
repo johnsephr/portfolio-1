@@ -70,6 +70,10 @@ angular.module('portfolioApp')
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+    .when('/thanks', {
+        templateUrl: 'views/thanks.html',
+        controller: 'ThanksCtrl'
+      })
       .whenAuthenticated('/account', {
         templateUrl: 'views/account.html',
         controller: 'AccountCtrl'
